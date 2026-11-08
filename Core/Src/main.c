@@ -24,6 +24,8 @@
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
 #include "oled.h"
+#include "keys.h"
+#include "snake.h"
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -89,12 +91,15 @@ int main(void)
   MX_GPIO_Init();
   MX_I2C1_Init();
   /* USER CODE BEGIN 2 */
-  oled_init(&hi2c1);
+  oled_init(&hi2c1);//取址，提供变量的地址，这样函数能在执行的时候直接修改这个地址对应的变量！硬件的寄存器也是如此。
 
-  HAL_GPIO_TogglePin(GPIOC, GPIO_PIN_13);
-  oled_rect(0, 0, 30, 10, 1);
-  oled_text(20, 40, "HELLO", 5);
-  oled_show();
+  //oled_rect(0, 0, 30, 10, 1);
+  //oled_text(20, 40, "HELLO", 1);
+  //oled_show();
+  //HAL_Delay(200);
+  //oled_clear();;
+  keys_init();
+  snake_run();
   /* USER CODE END 2 */
 
   /* Infinite loop */
