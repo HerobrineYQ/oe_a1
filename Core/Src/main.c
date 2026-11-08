@@ -23,9 +23,6 @@
 
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
-#include "string.h"
-#include "oled.h"
-#include "stdio.h"
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -91,13 +88,6 @@ int main(void)
   MX_GPIO_Init();
   MX_I2C1_Init();
   /* USER CODE BEGIN 2 */
-  HAL_Delay(20); // 单片机启动比OLED上电快,需要延迟等待一下
-  OLED_Init(); // 初始化OLED
-  
-  OLED_NewFrame(); // 新建一个空白缓冲区
-  OLED_PrintString(0, 22, "B站-KEYSKING", &font16x16, OLED_COLOR_NORMAL); // 中文、英文、符号混合显示
-  OLED_ShowFrame(); // 将缓冲区内容显示到屏幕上
-  printf();
   /* USER CODE END 2 */
 
   /* Infinite loop */
